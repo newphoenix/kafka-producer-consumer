@@ -28,7 +28,9 @@ public class Producer {
 		
 		KEY++;
 		
+		String message = (KEY%10) == 0  ? "" : "A Practical Advice: " + KEY;
+		
         template.send(topicName, String.valueOf(KEY),
-                new PracticalAdvice("A Practical Advice: " + KEY, KEY));
+                new PracticalAdvice(message, KEY));
 	}
 }

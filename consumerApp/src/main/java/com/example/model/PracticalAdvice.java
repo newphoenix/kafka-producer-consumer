@@ -1,5 +1,7 @@
 package com.example.model;
 
-public record PracticalAdvice(String message,long identifier) {
+import javax.validation.constraints.NotBlank;
+
+public record PracticalAdvice(@NotBlank String message,long identifier) {
 
 }

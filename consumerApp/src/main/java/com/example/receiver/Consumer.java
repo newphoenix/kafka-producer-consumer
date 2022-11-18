@@ -1,5 +1,7 @@
 package com.example.receiver;
 
+import javax.validation.Valid;
+
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -18,7 +20,7 @@ public class Consumer {
 			containerFactory = "kafkaListenerContainerFactory")
 	public void listenAsObject(//
 			ConsumerRecord<String, PracticalAdvice> cr, //
-			@Payload PracticalAdvice payload) {
+			@Payload @Valid PracticalAdvice payload) {
 		
 		log.info("### Logger 1 [Object] received key: {}| Payload: {}", cr.key(), payload);
 
